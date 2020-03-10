@@ -1,38 +1,42 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, ActionSheet, Root, Icon, View, Fab, Footer, FooterTab } from 'native-base';
+import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, ActionSheet, Root, Icon, View, Fab, Footer, FooterTab, Accordion, Input, Item } from 'native-base';
 import { StyleSheet } from 'react-native';
+
 
 export default class ListThumbnailExample extends Component {
   render() {
     return (
         <Container>
-          <Content>
-            <List>
-              <ListItem thumbnail>
-                <Left>
-                  <Thumbnail square source={ require('../../../../assets/jeff.jpeg') } />
-                </Left>
-                <Body style={styles.body}>
-                  <View style={styles.view}>
-                    <View style={styles.viewPerson1}>
-                      <Text style={{ flex:5 }}>Bacardí 50 años</Text>
-                      <Text note style={{ flex:3 }}> $ 50.000</Text>
-                    </View>
-                    <View style={styles.viewPerson}>
-                    <Button iconLeft transparent primary style={{ marginRight: '8px' }}>
+        <Content padder>
+          <Item style={{ flex:1 }}>
+            <Input style={{ flex:6, borderRadius:'50px', borderColor:'#3F51B5', borderWidth:'2px', height:'40px' }} rounded placeholder="Buscar por referencia" />
+            <Button transparent style={{ flex:2 }} vertical>
+                <Icon name="search" />
+              </Button>
+          </Item>
+          <List style={{ marginTop:'10px' }}>
+            <ListItem style={{ height:'40px' }}>
+              <Body style={styles.body}>
+                <View style={ styles.view }>
+                  <View style={ styles.viewPerson1 }>
+                    <Text style={{ fontSize:'15px' }}>Referencia: ASHJKDH12</Text>
+                    <Text style={{ fontSize:'15px' }}>Total: $ 12.00</Text>
+                  </View>
+
+                  <View style={ styles.viewPerson }>
+                    <Button transparent primary  onPress={ () => {
+                        this.props.navigation.navigate('Pedido')
+                      }}>
                       <Icon name='eye' />
                     </Button>
-                    <Button iconRight transparent primary>
-                      <Icon name='cart' />
-                    </Button>
-                    </View>
                   </View>
-                </Body>
-              </ListItem>
-              
-            </List>
-            
-          </Content>
+
+                </View>
+              </Body>
+            </ListItem>
+          </List>
+          
+        </Content>
           <Footer>
             <FooterTab>
               <Button vertical onPress={ () => {
@@ -82,22 +86,22 @@ export default class ListThumbnailExample extends Component {
 
 const styles = StyleSheet.create({
   body:{
-    marginLeft: '20%',
-    justifyContent:'center'
+    marginLeft: '5px',
+    justifyContent:'center',
   },
   view: {
     flex:1,
     flexDirection:'row'
   },
   viewPerson1: {
-    width: '50px',
     alignItems:"flex-start",
-    flex:2,
+    flex:5,
     flexDirection:'row'
   },
   viewPerson: {
     alignContent: "flex-end",
     alignItems:"flex-end",
+    height:'20px',
     flex:1,
     flexDirection:'row'
   }

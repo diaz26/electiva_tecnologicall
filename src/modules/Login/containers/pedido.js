@@ -1,44 +1,43 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, ActionSheet, Root, Icon, View, Fab, Footer, FooterTab, Item } from 'native-base';
+import { Container, Header, Content, List, ListItem, Thumbnail, Text, Left, Body, Right, Button, ActionSheet, Root, Icon, View, Fab, Footer, FooterTab, Accordion, Input, Item } from 'native-base';
 import { StyleSheet } from 'react-native';
+
 
 export default class ListThumbnailExample extends Component {
   render() {
     return (
         <Container>
-          <Content>
-            <List>
-              <ListItem thumbnail>
-                <Left>
-                  <Thumbnail rounded source={ require('../../../../assets/jeff.jpeg') } />
-                </Left>
-                <Body style={styles.body}>
-                  <View style={styles.view}>
-                    <View style={styles.viewPerson1}>
-                      <Text style={{ flex:5 }}>Bacardí 50 años</Text>
-                      <Text note style={{ flex:4 }}> $ 50.000</Text>
-                    </View>
-                    <View style={styles.viewPerson}>
-                    <Text style={{ flex:1 }}> - </Text>
-                    <Text style={{ flex:1 }}> 2 </Text>
-                    <Text style={{ flex:1 }}> + </Text>
-                    </View>
+        <Content>
+          <View>
+            <Text> Referencia HASDJ21 </Text>
+            <Text> Fecha: 19/02/2020 </Text>
+            <Text> Fecha estimada entrega: 19/02/2020 </Text>
+            <Text> Estado: PENDIENTE </Text>
+            <Text> Total: $ 19.00 </Text>
+          </View>
+          <View style={{ alignSelf:"center" }}>
+            <Text > DETALLES </Text>
+          </View>
+          <List>
+            <ListItem thumbnail>
+              <Left>
+                <Thumbnail rounded source={ require('../../../../assets/jeff.jpeg') } />
+              </Left>
+              <Body style={styles.body}>
+                <View style={styles.view}>
+                  <View style={styles.viewPerson1}>
+                    <Text style={{ flex:5 }}>Bacardí 50 años</Text>
+                    <Text note style={{ flex:4 }}> $ 50.000</Text>
                   </View>
-                </Body>
-              </ListItem>
-              
-            </List>
-            <Item style={{ marginTop:'10px' , flex:1, marginRight:'5px' }}>
-              <Text style={{ marginEnd:'10px', flex:5 }}> Total: $ 50.000</Text>
-              <Button iconLeft style={{ height:"40px" , width:'auto', flex:6}} onPress={ () => {
-                    this.props.navigation.navigate('Procesar')
-                  }}>
-                <Icon name='refresh' />
-                <Text>Procesar pago</Text>
-              </Button>
-            </Item>
+                  <View style={styles.viewPerson}>
+                  <Text style={{ flex:1 }}> 2 </Text>
+                  </View>
+                </View>
+              </Body>
+            </ListItem>
             
-          </Content>
+          </List>
+        </Content>
           <Footer>
             <FooterTab>
               <Button vertical onPress={ () => {

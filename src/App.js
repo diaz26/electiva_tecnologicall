@@ -7,6 +7,7 @@ import Home from './modules/Login/containers/home';
 import Perfil from './modules/Login/containers/perfil';
 import Carrito from './modules/Login/containers/carrito';
 import Pedidos from './modules/Login/containers/pedidos';
+import Pedido from './modules/Login/containers/pedido';
 import Productos from './modules/Login/containers/productos';
 import Producto from './modules/Login/containers/product';
 import Procesar from './modules/Login/containers/procesar';
@@ -59,6 +60,12 @@ const LoginNavigator = createStackNavigator({
     screen : Pedidos,
     navigationOptions: {
       title: 'PEDIDOS'
+    }
+  },
+  Pedido: {
+    screen : Pedido,
+    navigationOptions: {
+      title: 'PEDIDO HASDJ21'
     }
   },
   Productos: {
